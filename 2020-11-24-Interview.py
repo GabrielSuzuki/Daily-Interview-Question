@@ -1,26 +1,25 @@
-#Given a list of numbers with only 3 unique numbers (1, 2, 3), sort the list in O(n) time.
-#Input: [3, 3, 2, 1, 3, 2, 1]
-#Output: [1, 1, 2, 2, 3, 3, 3]
+#Hi, here's your problem today. This problem was recently asked by Facebook:
 
-def sortNums(nums):
-  i = 0
+#You are given a list of numbers, and a target number k. Return whether or not there are two numbers in the list that add up to k.
+
+#Example:
+#Given [4, 7, 1 , -3, 2] and k = 5, 
+#return true since 4 + 1 = 5.
+def two_sum(list, k):
   j = 0
-  # Fill this in.
-  sortedlist = []
-  for k in nums:
-    if nums[k] == 1:
-      #place at beginning 
-      sortedlist.insert(0,nums[k])
-      i += 1
-    elif nums[k] == 2:
-      #place at i position
-      sortedlist.insert(i,nums[k])
-      j += 1
-    elif nums[k] == 3:
-      #place at end
-      sortedlist.insert((j+i),nums[k])
-  return sortedlist
-print(sortNums([3, 3, 2, 1, 3, 2, 1]))
-# [1, 1, 2, 2, 3, 3, 3]
+  i = 0
+  while i < len(list):
+    if(list[i]+ list[j] == k):
+      return True
+    else:
+      if(j == (len(list) - 1)):
+        i += 1
+      else:
+        j += 1
+  return False     
+  
 
-#Challenge: Try sorting the list using constant space.
+print(two_sum([3,7,1,-3,2], 5))
+# True
+
+#Try to do it in a single pass of the list.
