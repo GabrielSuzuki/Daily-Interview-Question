@@ -9,7 +9,7 @@ def two_sum(list, k):
   j = 1
   i = 0
   while i < len(list):
-    if(j == len(list)):
+    if((j == len(list)) and (len(list) == 2)):
       return False
     if(list[i]+ list[j] == k):
       return True
@@ -22,7 +22,7 @@ def two_sum(list, k):
   return False     
   
 
-print(two_sum([3,1], 5))
+print(two_sum([3,1,4,1], 5))
 # True
 
 #Try to do it in a single pass of the list.
