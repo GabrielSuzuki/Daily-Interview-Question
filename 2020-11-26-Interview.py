@@ -13,10 +13,18 @@
 #Here is the function signature:
 def check(lst):
   # Fill this in.
-
-print check([13, 4, 7])
-# True
-print check([5,1,3,2,5])
+  k = 0
+  i = 1
+  while i < len(lst):
+    if(lst[i - 1] > lst[i]):
+      k += 1
+    if(k == 2):
+      return False
+    i += 1
+  return True
+print(check([13, 4, 7]))
+# True 
+print(check([5,1,3,2,5]))
 # False
 
 #Can you find a solution in O(n) time?
