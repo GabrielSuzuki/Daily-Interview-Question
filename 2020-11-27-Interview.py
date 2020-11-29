@@ -11,7 +11,6 @@ class Node:
     self.value = value
 
 def findCeilingFloor(root_node, k, floor=None, ceil=None):
-  tempvarA = []
   # Fill this in.
   if root_node == None:
     #if there are no items in the tree return None
@@ -19,23 +18,30 @@ def findCeilingFloor(root_node, k, floor=None, ceil=None):
   if root_node.value == k:
     #if the root = k return the root as the ceiling/floor
     return (root_node.value, root_node.value)
-  if root_node.value > k:
-    if(root_node.left == None):
-      tempvarA = (floor,root_node.value)
-    else:
-      tempvarA = findCeilingFloor(root_node.left, k, root_node.left.value, root_node.value)
+   # if(root_node.left == None):
+     # tempvarA = (floor,root_node.value)
+   # else:
+   #   tempvarA = findCeilingFloor(root_node.left, k, root_node.left.value, root_node.value)
       #floor = node value
       #ceiling = tempvarA[1]
-      return (tempvarA[1], root_node.value)
+      #return (tempvarA[1], root_node.value)
 
   if root_node.value < k:
-    if(root_node.right == None):
-      tempvarA = (root_node.value, ceil)
+    return findCeilingFloor(root_node.left.value,k)
+  
+  else:
+    val = findCeilingFloor(root.left.value, k)
+    if val >= k:
+      return val
     else:
-      tempvarA = findCeilingFloor(root_node.right, k, root_node.right.value, root_node.value)
+      return root_node.value
+   # if(root_node.right == None):
+     # tempvarA = (root_node.value, ceil)
+   # else:
+    #  tempvarA = findCeilingFloor(root_node.right, k, root_node.right.value, root_node.value)
         #floor = node value
         #ceiling = tempvarA[1]
-      return (root_node.value,tempvarA[1]) 
+     # return (root_node.value,tempvarA[1]) 
 
 
 
@@ -98,5 +104,5 @@ root.right.right = Node(14)
 globalfloor = None
 globalceiling = None
 
-print(findCeilingFloor(root, 5,globalfloor,globalceiling))
+print(findCeilingFloor(root, 5))
 # (4, 6)
