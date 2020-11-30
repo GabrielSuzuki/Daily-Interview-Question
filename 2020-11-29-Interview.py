@@ -4,25 +4,17 @@ class MaxStack:
     # Fill this in.
 
   def push(self, val):
-    if not self.head:
-      self.head = val
-      return
-    for current_node in self:
-      pass
-    current_node.next = val
+    Node(val).next = self.head
+    Node(val).head = Node(val)
     # Fill this in.
 
   def pop(self):
-    if not self.head:
-      return
-    for current_node in self:
-      pass
-    current_node = None
+   self.head = self.head.next
 
   def max(self):
     saved_node = 0
-    if not self.head:
-      return 
+    if self.head == None:
+      return None
     for current_node in self:
       if current_node > saved_node:
         saved_node = current_node
