@@ -5,10 +5,12 @@
 def staircase(n):
   # Fill this in.
   ways = 0
-  if(n-2 >= 0):
-    ways += staircase(n-2) + 1
-  if(n-1 >= 0):
-    ways += staircase(n-1) + 1
+  if(n == 0):
+    ways += 1
+  if(n-2 >= 0):#2 steps
+    ways += staircase(n-2)
+  if(n-1 >= 0):#1 step
+    ways += staircase(n-1)
   return ways
 
   
