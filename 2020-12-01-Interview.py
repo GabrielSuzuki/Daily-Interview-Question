@@ -13,11 +13,11 @@ def findPythagoreanTriplets(nums):
     c = nums[i]
     j = i + 1
     if(j > len(nums) - 1):
-      j = i - len(nums)
+      j = i - len(nums) #goes back to 0th position
     k = i + 2
-    if(k > len(nums) - 1):
-      k = i - len(nums) + 1
-    while j < len(nums) - 2:
+    if(k > len(nums) - 1):#goes back to 1st position
+      k = j - len(nums)
+    while j < len(nums) - 1:# loops through j(right after i) to end of list
       if(nums[k] == len(nums) - 1):
         j += 1
         if(j > len(nums) - 1):
