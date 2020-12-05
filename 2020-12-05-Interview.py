@@ -12,12 +12,28 @@
 
 #Here's the function signature:
 def word_search(matrix, word):
-  # Fill this in.
+  string tempword 
+  
+  for i in matrix:
+    for j in i:
+      
+      tempword += i[j]
+      if(tempword == word):
+        return True
+      while k < len(i):
+        
+        tempword2 += matrix[i[j]]
+        i += 1
+        if(tempword2 == word):
+          return True
+      tempword2 = ''
+  return False
+    
   
 matrix = [
   ['F', 'A', 'C', 'I'],
   ['O', 'B', 'Q', 'P'],
   ['A', 'N', 'O', 'B'],
   ['M', 'A', 'S', 'S']]
-print word_search(matrix, 'FOAM')
+print(word_search(matrix, 'FOAM'))
 # True
