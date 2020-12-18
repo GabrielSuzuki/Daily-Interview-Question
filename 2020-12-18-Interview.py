@@ -9,6 +9,37 @@
 
 #Here's a starting point:
 def merge(intervals):
+  firstint = []
+  firstbool = True
+  secondint = []
+  listt = []
+  for i in intervals:
+    for j in i:
+      if(i == len(intervals) - 1):
+        listt.append(firstint[0],firstint[1])
+        pass
+      if(firstbool == True):
+        firstint.append(j[0])
+        firstint.append(j[1])
+        firstbool = False
+      if(firstbool == False):
+        secondint.append(j[0])
+        secondint.append(j[1]) 
+        if(firstint[0] < secondint[0]):
+          if(firstint[1] < secondint[0]):
+            listt.append(firstint[0],firstint[1])
+            firstint = [firstint[0],firstint[1]]
+          else:
+            listt.append(firstint[0],secondint[1])
+            firstint = [firstint[0],secondint[1]]
+        else:
+          if(firstint[1],secondint[1]):
+            listt.append(secondint[0],secondint[1])
+            firstint = [secondint[0],secondint[1]]
+          else:
+            listt.append(secondint[0],firstint[1])
+            firstint = [secondint[0],firstint[1]]
+  return listt
   #save 1 tuple
   #use 2nd tuple to check the first
   # if there is no 2nd tuple, just add the 1st tuple
