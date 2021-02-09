@@ -19,7 +19,6 @@ def maxPathSum(root):
       sums += maxPathSum(root.right)
     elif (root.left.val < root.right.val):
       sums += maxPathSum(root.right)
-  print(sums)
   return sums
   # Fill this in.
 
